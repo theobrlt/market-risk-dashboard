@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,30 +7,45 @@
 }
 
 :root {
-  --primary-bg: #ffffff;
-  --secondary-bg: #f8f9fa;
-  --tertiary-bg: #f3f4f6;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --border-color: #e5e7eb;
-  --accent-blue: #3b82f6;
+  /* Bloomberg Dark Theme - OLED Optimized */
+  --bg-deep: #020617;
+  --bg-dark: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f8fafc;
+  --text-muted: #64748b;
+  --border-color: #334155;
+
+  /* Legacy names for compatibility */
+  --primary-bg: var(--bg-dark);
+  --secondary-bg: var(--bg-secondary);
+  --tertiary-bg: var(--bg-secondary);
+  --text-secondary: var(--text-muted);
+
+  /* Accent Colors - Financial Indicators */
+  --accent-blue: #0369a1;
+  --accent-green: #22c55e;
   --accent-red: #ef4444;
   --accent-yellow: #f59e0b;
-  --accent-green: #10b981;
-  --accent-cyan: #06b6d4;
   --accent-orange: #f97316;
+  --accent-cyan: #06b6d4;
+
+  /* Effects */
+  --blur-amount: 15px;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --transition: all 0.2s ease;
 }
 
 html,
 body {
   height: 100%;
-  background-color: var(--primary-bg);
+  background-color: var(--bg-deep);
   color: var(--text-primary);
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
 }
 
@@ -56,7 +73,7 @@ textarea {
 header {
   margin-bottom: 50px;
   padding-bottom: 30px;
-  border-bottom: 2px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,16 +86,18 @@ header h1 {
   margin-bottom: 5px;
   color: var(--text-primary);
   font-weight: 700;
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: -1px;
+}
+
+header h1::first-letter {
+  color: var(--accent-green);
 }
 
 header .subtitle {
-  color: var(--text-secondary);
+  color: var(--text-muted);
   font-size: 1em;
   font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .header-controls {
@@ -89,24 +108,26 @@ header .subtitle {
 
 .refresh-btn {
   padding: 12px 28px;
-  background: linear-gradient(135deg, var(--accent-blue) 0%, #2563eb 100%);
-  color: white;
-  border: none;
+  background-color: var(--accent-blue);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   cursor: pointer;
   font-size: 1em;
   font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  font-family: inherit;
 }
 
 .refresh-btn:hover:not(:disabled) {
+  background-color: #0285cc;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  box-shadow: var(--shadow-md);
 }
 
 .refresh-btn:disabled {
-  opacity: 0.7;
+  opacity: 0.5;
   cursor: not-allowed;
   transform: none;
 }
@@ -119,12 +140,14 @@ header .subtitle {
 
 /* Risk Score Card */
 .risk-score-card {
-  background-color: var(--primary-bg);
-  border: 2px solid var(--accent-blue);
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 40px;
   margin-bottom: 50px;
-  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+  box-shadow: var(--shadow-md);
 }
 
 .risk-score-card h2 {
@@ -132,6 +155,7 @@ header .subtitle {
   font-size: 1.8em;
   color: var(--text-primary);
   font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .score-display {
@@ -144,12 +168,11 @@ header .subtitle {
 .score-number {
   font-size: 5em;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-green);
   min-width: 180px;
   text-align: center;
+  letter-spacing: -2px;
+  font-variant-numeric: tabular-nums;
 }
 
 .score-interpretation {
@@ -164,11 +187,12 @@ header .subtitle {
 .score-gauge {
   width: 100%;
   height: 40px;
-  background-color: var(--tertiary-bg);
+  background-color: rgba(51, 65, 85, 0.5);
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 25px;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .gauge-bar {
@@ -183,7 +207,7 @@ header .subtitle {
   );
   width: 0%;
   transition: width 0.5s ease;
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .score-description {
@@ -202,18 +226,28 @@ header .subtitle {
 }
 
 .indicator-card {
-  background-color: var(--primary-bg);
-  border: 1.5px solid var(--border-color);
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 28px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
 .indicator-card:hover {
-  border-color: var(--accent-blue);
-  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+  border-color: rgba(3, 105, 161, 0.5);
+  box-shadow: var(--shadow-md);
   transform: translateY(-4px);
+  background: rgba(30, 41, 59, 0.8);
+  cursor: pointer;
+}
+
+.indicator-card:focus-within {
+  border-color: rgba(3, 105, 161, 0.5);
+  outline: 2px solid rgba(3, 105, 161, 0.3);
+  outline-offset: 2px;
 }
 
 .indicator-card h3 {
@@ -221,16 +255,15 @@ header .subtitle {
   margin-bottom: 18px;
   color: var(--text-primary);
   font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .value {
   font-size: 2.5em;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-green);
   margin-bottom: 12px;
+  font-variant-numeric: tabular-nums;
 }
 
 .threshold {
@@ -252,12 +285,14 @@ header .subtitle {
 
 /* Charts Section */
 .charts-section {
-  background-color: var(--primary-bg);
-  border: 1.5px solid var(--border-color);
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 40px;
   margin-bottom: 50px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-md);
 }
 
 .charts-section h2 {
@@ -265,6 +300,7 @@ header .subtitle {
   font-size: 1.8em;
   color: var(--text-primary);
   font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .charts-grid {
@@ -276,19 +312,22 @@ header .subtitle {
 .chart-container {
   position: relative;
   height: 350px;
-  background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+  background: rgba(51, 65, 85, 0.3);
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Guide Section */
 .guide-section {
-  background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
-  border: 1.5px solid var(--border-color);
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 40px;
   margin-bottom: 40px;
+  box-shadow: var(--shadow-md);
 }
 
 .guide-section h2 {
@@ -296,6 +335,7 @@ header .subtitle {
   font-size: 1.8em;
   color: var(--text-primary);
   font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .risk-levels {
@@ -308,36 +348,41 @@ header .subtitle {
   padding: 20px;
   border-radius: 12px;
   border-left: 5px solid;
-  background-color: var(--primary-bg);
+  background: rgba(51, 65, 85, 0.4);
   font-weight: 600;
   color: var(--text-primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
 .risk-level:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .risk-level.low {
   border-left-color: var(--accent-green);
+  background: rgba(34, 197, 94, 0.1);
 }
 
 .risk-level.moderate {
   border-left-color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.1);
 }
 
 .risk-level.elevated {
   border-left-color: var(--accent-yellow);
+  background: rgba(245, 158, 11, 0.1);
 }
 
 .risk-level.high {
   border-left-color: var(--accent-orange);
+  background: rgba(249, 115, 22, 0.1);
 }
 
 .risk-level.critical {
   border-left-color: var(--accent-red);
+  background: rgba(239, 68, 68, 0.1);
 }
 
 /* Loading */
@@ -350,7 +395,7 @@ header .subtitle {
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 3px solid var(--border-color);
+  border: 3px solid rgba(51, 65, 85, 0.5);
   border-radius: 50%;
   border-top-color: var(--accent-blue);
   animation: spin 1s linear infinite;
@@ -362,7 +407,30 @@ header .subtitle {
   }
 }
 
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Responsive */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 20px 15px;
@@ -372,19 +440,26 @@ header .subtitle {
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 30px;
+    gap: 15px;
   }
 
   header h1 {
     font-size: 2em;
   }
 
+  .header-controls {
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .refresh-btn {
+    width: 100%;
+  }
+
   .score-display {
     flex-direction: column;
     gap: 20px;
-  }
-
-  .charts-grid {
-    grid-template-columns: 1fr;
   }
 
   .indicators-grid {
@@ -405,5 +480,33 @@ header .subtitle {
 
   .guide-section {
     padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  .score-number {
+    font-size: 2.5em;
+  }
+
+  .value {
+    font-size: 1.8em;
+  }
+
+  .risk-score-card,
+  .charts-section,
+  .guide-section {
+    padding: 20px;
+  }
+
+  .container {
+    padding: 15px 12px;
   }
 }

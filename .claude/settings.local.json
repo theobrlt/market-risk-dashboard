@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node -e \"console.log\\(process.cwd\\(\\)\\)\")",
+      "PowerShell($PWD)"
+    ]
+  }
+}
