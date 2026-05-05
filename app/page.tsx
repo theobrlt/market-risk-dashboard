@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
@@ -212,77 +213,93 @@ export default function Home() {
       )}
 
       <div className="indicators-grid">
-        <div className="indicator-card">
-          <h3>Magnificent 7 Weight</h3>
-          <div className="value">{formatValue(current?.mag7_weight)}%</div>
-          <div className="threshold">Threshold: 35% (elevated)</div>
-          <div className="trend">
-            {current && current.mag7_weight ? (current.mag7_weight > 35 ? '🔴 Above threshold' : '✅ Normal') : '--'}
+        <Link href="/indicators/mag7" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div className="indicator-card" style={{ cursor: 'pointer' }}>
+            <h3>Magnificent 7 Weight</h3>
+            <div className="value">{formatValue(current?.mag7_weight)}%</div>
+            <div className="threshold">Threshold: 35% (elevated)</div>
+            <div className="trend">
+              {current && current.mag7_weight ? (current.mag7_weight > 35 ? '🔴 Above threshold' : '✅ Normal') : '--'}
+            </div>
           </div>
-        </div>
+        </Link>
 
-        <div className="indicator-card">
-          <h3>Shiller P/E Ratio</h3>
-          <div className="value">{formatValue(current?.shiller_pe)}</div>
-          <div className="threshold">Threshold: 30 (elevated)</div>
-          <div className="trend">
-            {current && current.shiller_pe ? (current.shiller_pe > 30 ? '🔴 Above threshold' : '✅ Normal') : '--'}
+        <Link href="/indicators/shiller" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div className="indicator-card" style={{ cursor: 'pointer' }}>
+            <h3>Shiller P/E Ratio</h3>
+            <div className="value">{formatValue(current?.shiller_pe)}</div>
+            <div className="threshold">Threshold: 30 (elevated)</div>
+            <div className="trend">
+              {current && current.shiller_pe ? (current.shiller_pe > 30 ? '🔴 Above threshold' : '✅ Normal') : '--'}
+            </div>
           </div>
-        </div>
+        </Link>
 
-        <div className="indicator-card">
-          <h3>VIX (Volatility)</h3>
-          <div className="value">{formatValue(current?.vix)}</div>
-          <div className="threshold">Threshold: 20 (elevated)</div>
-          <div className="trend">
-            {current && current.vix ? (current.vix > 20 ? '🔴 Above threshold' : '✅ Normal') : '--'}
+        <Link href="/indicators/vix" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div className="indicator-card" style={{ cursor: 'pointer' }}>
+            <h3>VIX (Volatility)</h3>
+            <div className="value">{formatValue(current?.vix)}</div>
+            <div className="threshold">Threshold: 20 (elevated)</div>
+            <div className="trend">
+              {current && current.vix ? (current.vix > 20 ? '🔴 Above threshold' : '✅ Normal') : '--'}
+            </div>
           </div>
-        </div>
+        </Link>
 
-        <div className="indicator-card">
-          <h3>Market Breadth</h3>
-          <div className="value">{formatValue(current?.breadth)}%</div>
-          <div className="threshold">% above 200-day MA</div>
-          <div className="trend">
-            {current && current.breadth ? (current.breadth > 50 ? '✅ Healthy' : '⚠️ Below threshold') : '--'}
+        <Link href="/indicators/breadth" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div className="indicator-card" style={{ cursor: 'pointer' }}>
+            <h3>Market Breadth</h3>
+            <div className="value">{formatValue(current?.breadth)}%</div>
+            <div className="threshold">% above 200-day MA</div>
+            <div className="trend">
+              {current && current.breadth ? (current.breadth > 50 ? '✅ Healthy' : '⚠️ Below threshold') : '--'}
+            </div>
           </div>
-        </div>
+        </Link>
 
-        <div className="indicator-card">
-          <h3>10Y-2Y Spread</h3>
-          <div className="value">{formatValue(current?.yield_curve_spread)}%</div>
-          <div className="threshold">Threshold: 0 (inversion)</div>
-          <div className="trend">
-            {current && current.yield_curve_spread !== null
-              ? current.yield_curve_spread < 0
-                ? '🔴 Inverted'
-                : '✅ Normal'
-              : '--'}
+        <Link href="/indicators/yield-curve" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div className="indicator-card" style={{ cursor: 'pointer' }}>
+            <h3>10Y-2Y Spread</h3>
+            <div className="value">{formatValue(current?.yield_curve_spread)}%</div>
+            <div className="threshold">Threshold: 0 (inversion)</div>
+            <div className="trend">
+              {current && current.yield_curve_spread !== null
+                ? current.yield_curve_spread < 0
+                  ? '🔴 Inverted'
+                  : '✅ Normal'
+                : '--'}
+            </div>
           </div>
-        </div>
+        </Link>
 
-        <div className="indicator-card">
-          <h3>Equity Risk Premium</h3>
-          <div className="value">{formatValue(current?.equity_risk_premium)}%</div>
-          <div className="threshold">Earnings yield - Risk-free rate</div>
-          <div className="trend">
-            {current && current.equity_risk_premium ? (current.equity_risk_premium > 2 ? '✅ Fair' : '⚠️ Tight') : '--'}
+        <Link href="/indicators/erp" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div className="indicator-card" style={{ cursor: 'pointer' }}>
+            <h3>Equity Risk Premium</h3>
+            <div className="value">{formatValue(current?.equity_risk_premium)}%</div>
+            <div className="threshold">Earnings yield - Risk-free rate</div>
+            <div className="trend">
+              {current && current.equity_risk_premium ? (current.equity_risk_premium > 2 ? '✅ Fair' : '⚠️ Tight') : '--'}
+            </div>
           </div>
-        </div>
+        </Link>
 
-        <div className="indicator-card">
-          <h3>HY Spread Proxy</h3>
-          <div className="value">{formatValue(current?.hy_spread_proxy)}</div>
-          <div className="threshold">Bond ETF price (HYG)</div>
-          <div className="trend">Manual data</div>
-        </div>
+        <Link href="/indicators/hy-spread" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div className="indicator-card" style={{ cursor: 'pointer' }}>
+            <h3>HY Spread Proxy</h3>
+            <div className="value">{formatValue(current?.hy_spread_proxy)}</div>
+            <div className="threshold">Bond ETF price (HYG)</div>
+            <div className="trend">Manual data</div>
+          </div>
+        </Link>
 
-        <div className="indicator-card">
-          <h3>Unemployment Rate</h3>
-          <div className="value">{formatValue(current?.unemployment_rate)}</div>
-          <div className="threshold">Latest available</div>
-          <div className="trend">Requires manual update</div>
-        </div>
+        <Link href="/indicators/unemployment" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div className="indicator-card" style={{ cursor: 'pointer' }}>
+            <h3>Unemployment Rate</h3>
+            <div className="value">{formatValue(current?.unemployment_rate)}</div>
+            <div className="threshold">Latest available</div>
+            <div className="trend">Requires manual update</div>
+          </div>
+        </Link>
       </div>
 
       {last30Days.length > 0 && (

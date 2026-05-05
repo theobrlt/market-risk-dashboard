@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAllIndicators } from '@/lib/dataFetcher';
-import { getLatestIndicators } from '@/lib/storage';
+import { getLatestIndicators, appendToHistory } from '@/lib/storage';
 
 export async function GET(request: NextRequest) {
   try {
@@ -12,6 +12,11 @@ export async function GET(request: NextRequest) {
 
     // Otherwise fetch fresh data
     const indicators = await getAllIndicators();
+
+    // Persist to history for risk score calculation
+    const dateStr = new Date().toISOString().split('T')[0];
+    await appendToHistory(dateStr, indicators);
+
     return NextResponse.json(indicators);
   } catch (error) {
     console.error('Error fetching current indicators:', error);
