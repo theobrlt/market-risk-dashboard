@@ -217,7 +217,7 @@ export default function Home() {
           <div className="value">{formatValue(current?.mag7_weight)}%</div>
           <div className="threshold">Threshold: 35% (elevated)</div>
           <div className="trend">
-            {current?.mag7_weight ? (current.mag7_weight > 35 ? '🔴 Above threshold' : '✅ Normal') : '--'}
+            {current && current.mag7_weight ? (current.mag7_weight > 35 ? '🔴 Above threshold' : '✅ Normal') : '--'}
           </div>
         </div>
 
@@ -226,7 +226,7 @@ export default function Home() {
           <div className="value">{formatValue(current?.shiller_pe)}</div>
           <div className="threshold">Threshold: 30 (elevated)</div>
           <div className="trend">
-            {current?.shiller_pe ? (current.shiller_pe > 30 ? '🔴 Above threshold' : '✅ Normal') : '--'}
+            {current && current.shiller_pe ? (current.shiller_pe > 30 ? '🔴 Above threshold' : '✅ Normal') : '--'}
           </div>
         </div>
 
@@ -235,7 +235,7 @@ export default function Home() {
           <div className="value">{formatValue(current?.vix)}</div>
           <div className="threshold">Threshold: 20 (elevated)</div>
           <div className="trend">
-            {current?.vix ? (current.vix > 20 ? '🔴 Above threshold' : '✅ Normal') : '--'}
+            {current && current.vix ? (current.vix > 20 ? '🔴 Above threshold' : '✅ Normal') : '--'}
           </div>
         </div>
 
@@ -244,7 +244,7 @@ export default function Home() {
           <div className="value">{formatValue(current?.breadth)}%</div>
           <div className="threshold">% above 200-day MA</div>
           <div className="trend">
-            {current?.breadth ? (current.breadth > 50 ? '✅ Healthy' : '⚠️ Below threshold') : '--'}
+            {current && current.breadth ? (current.breadth > 50 ? '✅ Healthy' : '⚠️ Below threshold') : '--'}
           </div>
         </div>
 
@@ -253,7 +253,7 @@ export default function Home() {
           <div className="value">{formatValue(current?.yield_curve_spread)}%</div>
           <div className="threshold">Threshold: 0 (inversion)</div>
           <div className="trend">
-            {current?.yield_curve_spread !== null
+            {current && current.yield_curve_spread !== null
               ? current.yield_curve_spread < 0
                 ? '🔴 Inverted'
                 : '✅ Normal'
@@ -266,7 +266,7 @@ export default function Home() {
           <div className="value">{formatValue(current?.equity_risk_premium)}%</div>
           <div className="threshold">Earnings yield - Risk-free rate</div>
           <div className="trend">
-            {current?.equity_risk_premium ? (current.equity_risk_premium > 2 ? '✅ Fair' : '⚠️ Tight') : '--'}
+            {current && current.equity_risk_premium ? (current.equity_risk_premium > 2 ? '✅ Fair' : '⚠️ Tight') : '--'}
           </div>
         </div>
 
