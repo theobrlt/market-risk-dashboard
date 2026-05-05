@@ -80,8 +80,8 @@ export default function Home() {
     return 'rgba(239, 68, 68, 0.1)';
   };
 
-  const formatValue = (value: number | null) => {
-    if (value === null) return '--';
+  const formatValue = (value: number | null | undefined) => {
+    if (value === null || value === undefined) return '--';
     return value.toFixed(2);
   };
 
