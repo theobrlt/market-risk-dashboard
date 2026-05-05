@@ -1,0 +1,75 @@
+Good move — translating a thesis into measurable indicators forces it to become falsifiable. Below is a dashboard mapped to your specific arguments. I've grouped indicators by what they actually tell you, and flagged which are leading vs. coincident vs. lagging, because most retail "crash dashboards" mix these and end up useless.
+Valuation and concentration (your S&P/MSCI argument)
+These are conditioning indicators — they tell you the setup, not the trigger. High valuations don't cause crashes; they determine the depth when something else does.
+
+Shiller CAPE ratio — currently elevated; watch for the spread between CAPE and its 10-year average rather than the absolute level
+Equity risk premium (S&P earnings yield minus 10Y Treasury yield) — when this goes negative or near zero, equities are priced for perfection
+Top 10 weight in S&P 500 — track monthly; concentration above 35% historically associated with rough subsequent returns, though timing is poor
+Equal-weight vs cap-weight S&P performance spread — when cap-weight massively outperforms equal-weight, breadth is narrowing; reversal often precedes broader weakness
+Buffett indicator (total market cap to GDP) — crude but widely watched
+
+Source: multpl.com, YCharts, or just FRED for the components.
+Passive flow and market structure (your liquidity crisis argument)
+This is where most dashboards are weak because the data is genuinely hard to get cleanly.
+
+ICI weekly fund flows — equity ETF inflows vs mutual fund outflows; the divergence has been a structural trend, watch for both turning negative simultaneously
+Margin debt (FINRA, monthly, lagged) — peaks typically precede major drawdowns by a few months; watch year-over-year change rather than absolute level
+VIX term structure (front month vs 6-month) — backwardation (front higher than back) signals near-term stress
+MOVE index (Treasury volatility) — often leads equity volatility; rising MOVE with calm VIX is a divergence worth watching
+Cross-asset correlation — when stock-bond correlation flips positive and stays there, traditional hedging breaks down; this happened in 2022 and is a regime change indicator
+
+For the specific "passive unwind" thesis, honestly there's no clean public indicator. The closest proxy is monitoring 401(k) and IRA flow data from ICI quarterly reports, plus aggregate boomer-age demographic withdrawal patterns from Fed Z.1 data. Both lag heavily.
+AI capex and GPU depreciation (your impairment wall argument)
+This is the most tractable to monitor because it shows up in filings.
+
+Hyperscaler capex as % of revenue — Microsoft, Google, Meta, Amazon, Oracle quarterly; watch for capex growth outpacing revenue growth meaningfully
+Stated useful life of servers/GPUs in 10-K disclosures — any company shortening assumed life is the strongest signal
+Impairment charges in quarterly reports — Amazon already took one; track new ones
+Nvidia data center revenue concentration — what % comes from top 4 customers; rising concentration means demand is narrow
+CoreWeave credit spreads and equity price — purest play on GPU collateral value
+Power purchase agreements and data center vacancy rates — if hyperscalers start canceling or delaying, that's the leading signal of capex retrenchment
+
+The CoreWeave bond spreads are probably the single best canary — they react faster than equity to GPU value perception.
+Private credit stress (your black box argument)
+The data is bad on purpose, but you can triangulate.
+
+BDC discount/premium to NAV — publicly traded BDCs (Ares Capital, Blue Owl, Blackstone Private Credit) trading at sustained discounts to NAV signal market skepticism of marks
+BDC non-accrual rates — disclosed quarterly; watch trajectory not absolute level
+PIK income as % of total interest income in BDC reports — rising PIK = stretched borrowers
+Leveraged loan default rate (Moody's, S&P) — public market proxy for private credit health, since the borrower universe overlaps
+CCC-rated bond spreads — the lowest tier of public credit moves before private credit marks adjust
+Subscription line and NAV lending volumes at major banks — disclosed in some bank 10-Qs (JPM, Citi, Goldman); rapid growth here is the bank-channel risk
+Insurance company private credit allocation — NAIC data, lagged but available; watch Athene, Global Atlantic, F&G specifically
+
+Macro and credit cycle (general crash anticipation)
+These are the indicators with the best historical track record across cycles.
+
+Yield curve (10Y-3M and 10Y-2Y) — inversion has preceded every US recession since 1960s, with 6-18 month lag; the un-inversion is often the more immediate signal
+High-yield credit spreads (ICE BofA HY OAS) — credit markets typically lead equity by weeks to months at turning points
+Investment grade spreads — slower-moving but cleaner signal when they widen
+Senior Loan Officer Opinion Survey (SLOOS, quarterly) — bank lending standards tightening leads loan growth and economic activity
+Conference Board Leading Economic Index — composite, lags slightly but reliable
+Initial jobless claims (4-week moving average) — weekly, fast, sensitive
+ISM Manufacturing and Services PMI — sub-50 readings sustained signal contraction
+
+Geopolitical and conflict (your strategic assets argument)
+Hard to quantify, but a few proxies:
+
+Defense sector relative performance (ITA ETF vs SPY)
+Oil price and oil volatility (OVX) — geopolitical stress shows here first
+Gold and gold miners performance
+Strategic commodities: uranium, copper, rare earths, lithium prices
+DXY (dollar index) — flight-to-quality moves
+China-related risk premium — Taiwan-related shipping rates, semiconductor export control news flow
+
+How to actually use this
+A few principles that separate useful dashboards from doom-scroll exercises:
+First, establish baselines and z-scores rather than absolute levels. "VIX is at 22" means nothing; "VIX is 1.5 standard deviations above its trailing 1-year average while MOVE is also elevated" means something.
+Second, require confirmation across categories. One indicator flashing is noise. Credit spreads widening + leading indicators rolling over + breadth deteriorating + BDC discounts widening simultaneously is signal. Single-indicator triggers will whipsaw you.
+Third, separate "elevated risk" from "imminent crash" indicators. Valuations and concentration are the former. Credit spreads, jobless claims, and yield curve un-inversion are the latter. Don't act on the conditioning indicators alone — they've been elevated for years.
+Fourth, write down your thresholds in advance. "If HY spreads cross 600bps AND jobless claims rise above 300k for 4 consecutive weeks, I reduce equity exposure by X%." Without pre-committed rules, you'll rationalize after the fact.
+Fifth, track your dashboard's track record. Most crash indicators have flashed false positives multiple times since 2010 (2011, 2015-16, 2018, 2022). A dashboard that "predicted" all of those plus one real crash is barely better than chance. Keep an honest log.
+Practical setup
+For the dashboard itself, FRED (free) covers most macro indicators. Bloomberg or Koyfin (paid) for credit spreads and BDC data. Company filings via SEC EDGAR for the AI capex and depreciation data. ICI website for fund flows. You can build the whole thing in a Google Sheet pulling from these sources, or in Python with pandas-datareader for FRED and some scraping for the rest.
+If you want, I can sketch a specific scoring framework — weighting these indicators into a composite score with thresholds — but I'd want to know your time horizon and what action the dashboard would actually trigger before doing that. A dashboard for "reduce equity by 20% on signal" looks different from one for "buy puts on signal."
+Same caveat as before: this is structural analysis of how to monitor a thesis, not investment advice on whether the thesis is correct or how to position around it.

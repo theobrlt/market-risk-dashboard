@@ -1,0 +1,53 @@
+Here’s a practical, targeted dashboard of financial indicators aligned with your thesis (tech concentration, passive-driven flows, AI accounting/capex risks, private credit opacity, liquidity fragility, and detachment from the real economy). These are leading or coincident signals that could flag building stress before a major correction or crash. 
+
+slickcharts.com
+
+Focus on trends, thresholds, and divergences rather than single snapshots. Use sources like Bloomberg, FactSet, FRED, S&P Global, PitchBook, or BDC filings for data.1. Concentration & "Magnificent 7" RiskS&P 500 Top 10 (or Mag 7) Weight: Track % of index market cap. Current levels are near or above ~35-40% (historically extreme). Rising further or sharp reversal signals fragility. 
+
+slickcharts.com
+
+S&P 500 vs. Equal-Weighted S&P 500 Performance Divergence: Cap-weighted outperformance shows concentration driving returns. Widening gap = higher risk.
+Herfindahl-Hirschman Index (HHI) for S&P 500 or MSCI World: Measures overall concentration.
+
+2. Valuation & OverheatingShiller CAPE Ratio (S&P 500): Long-term normalized P/E. Levels >30-35 have preceded major drawdowns historically.
+Buffett Indicator (Total US Stock Market Cap / GDP): Extreme highs (>200%) flag overvaluation vs. economy.
+S&P 500 Forward P/E vs. Earnings Growth Expectations: Compare to historical or vs. 10-year Treasury yield (Fed Model/ERP).
+Equity Risk Premium (Earnings yield minus risk-free rate): Compression signals low compensation for risk.
+
+3. Passive Flows & Liquidity DynamicsETF Flows (especially S&P 500 / Nasdaq / Tech ETFs): Weekly or monthly net inflows. Sustained heavy inflows followed by reversal = potential liquidity squeeze.
+Market Breadth Indicators:Advance-Decline Line (NYSE or S&P).
+% of S&P 500 stocks above 200-day MA.
+Equal-weighted index underperformance.
+
+Bid-Ask Spreads & Illiquidity Measures (e.g., Amihud Illiquidity Ratio for major indices or top holdings): Widening in stress.
+VIX + VVIX (vol of vol): Rising together signals liquidity/uncertainty spikes.
+
+4. AI Capex, Utilization & Impairment SignalsHyperscaler Capex vs. Free Cash Flow: Track Microsoft, Amazon, Google, Meta combined (or individual). When capex approaches or exceeds ~80-100% of operating cash flow, watch for strain. 
+
+cnbc.com
+
+GPU Utilization Rates & Secondary Market Pricing: Reported or estimated utilization (often 30-60% in practice vs. claims). Falling secondary GPU prices or discounts signal obsolescence.
+Depreciation Policy Changes & Impairment Announcements: Monitor quarterly reports for useful life revisions (e.g., server/GPU lives) or accelerated charges.
+AI Revenue Attribution vs. Capex ROI: Cloud segment growth vs. AI-specific spend payback period. Watch for guidance cuts.
+
+5. Private Credit Stress & Black Box RisksPrivate Credit Default Rates (Fitch PMR, BDC non-accruals, Moody’s estimates): Rising above 5-8% (including distressed exchanges/PIK) is concerning. Track dispersion (small borrowers, software exposure). 
+
+fitchratings.com
+
+BDC Discounts to NAV + Redemption/Gating Data: Wider discounts or increased gates/freezes signal liquidity stress.
+PIK Toggle & Amend-and-Pretend Usage: % of portfolios using payment-in-kind or restructurings (rising sharply = hidden distress).
+Bank/Insurer Exposure to Private Credit: Aggregate disclosures.
+
+6. Broader Macro & Real Economy DivergenceYield Curve (10y-2y or 10y-3m Treasury): Steepening after inversion can signal recession.
+High-Yield Credit Spreads + Leveraged Loan Spreads: Widening indicates credit stress spilling over.
+Unemployment Rate + Initial Claims: Rising trend (Sahm Rule: +0.5% from 12-month low).
+Corporate Profit Margins (S&P 500) vs. GDP Growth: Divergence or margin compression.
+M2 Money Supply Growth or Liquidity Measures: Sharp slowdown after boom.
+
+Dashboard Implementation TipsVisualization: Use charts for trends (e.g., rolling correlations between Mag7 and index), heatmaps for thresholds (green/yellow/red), and alerts for breaks (e.g., top 10 weight >38%, CAPE >35, defaults >7%).
+Frequency: Weekly for flows/breadth; quarterly for earnings/capex/defaults; daily for valuations/volatility.
+Composites: Create a "Crash Risk Score" weighting these (e.g., high concentration + widening spreads + capex/Fcf mismatch = elevated risk).
+Cross-Checks: Monitor retail investor sentiment (AAII surveys, margin debt) and options skew (put/call ratios) for behavioral signals.
+
+Caveats: No indicator perfectly predicts crashes—markets can stay irrational longer than expected, and these risks may resolve via gradual correction rather than sudden collapse. Many of these (e.g., concentration, high valuations) have been elevated for years while markets rose. Use them for risk management (e.g., hedging, diversification into equal-weight, value, international, or defensives) rather than precise timing. Combine with qualitative monitoring of policy (Fed), geopolitics, and company guidance. This setup directly pressures your thesis points and gives actionable early warnings. Update it regularly as new data (e.g., Q2 2026 earnings) emerges.
+
